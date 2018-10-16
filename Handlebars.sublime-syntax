@@ -1,0 +1,72 @@
+%YAML 1.2
+---
+name: HTML-HANDLEBARS
+file_extensions:
+  - html
+  - htm
+  - shtml
+  - xhtml
+  - handlebars
+scope: text.html.handle
+first_line_match: '<\s*(?i)(!DOCTYPE\s*)?html\s*>'
+contexts:
+  main:
+    - match: '<\s*(?i)(!DOCTYPE\s*)?html\s*>'
+      scope: keyword.
+
+
+    - match: '(?=<[^>]*>)'
+      embed: Packages/HTML/HTML.sublime-syntax
+      embed_scope: embedded.html
+      escape: '>'
+
+    - match: '{{{'
+      push: handlebars-curly-noEsc
+
+    - match: '{\s*{\s*'
+      push: handlebars-curly
+
+
+
+  handlebars-curly-noEsc:
+  - match: "[^{}]*"
+    scope: constant.language
+    escape: "}}}"
+    pop: true
+
+  handlebars-curly:
+  - match: ">_[^{}]*"
+    scope: variable.function
+    escape: "}}"
+    pop: true
+
+  - match: "#[^{}]*"
+    scope: entity.name.tag
+    escape: "}}"
+    pop: true
+
+  - match: "\/[^{}]*"
+    scope: entity.name.tag
+    escape: "}}"
+    pop: true
+
+  - match: '\s*else'
+    scope: entity.name.tag
+    escape: "}}"
+    pop: true
+
+  - match: "[^{}]*"
+    scope: variable.parameter
+    escape: "}}"
+    pop: true
+
+
+
+
+
+
+
+
+
+
+    
