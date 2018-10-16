@@ -13,3 +13,5 @@ I just slapped some conditions on sublime text 3's built in html syntax, so ever
 - {{>_ partial}},
 - {{{Body}}},
 - {{#if}}{{/if}}{{#each}}{{/each}}{{else}}.
+
+Sample: ![syntax](https://i.imgur.com/bOJlM3r.jpg)
