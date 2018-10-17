@@ -647,7 +647,7 @@ contexts:
     pop: true
 
   handlebars-curly:
-  - match: ">_[^{}]*"
+  - match: '>\s+[^{}]*'
     scope: variable.function
     escape: "}}"
     pop: true
